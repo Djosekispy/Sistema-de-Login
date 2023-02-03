@@ -19,7 +19,8 @@ if(isset($_POST['logar'])){
         $dados = mysqli_fetch_array($bancoEntar);
         $_SESSION['id'] = $dados['idLogin'];
         $_SESSION['login'] = true; 
-        header('location: index.php?id='.$_SESSION['id']);
+        $_SESSION['tipo'] = $dados['tipo'];
+        header('location: index.php');
  
       }else{
         $erros[]= "Usuario e Senha não conferem";
